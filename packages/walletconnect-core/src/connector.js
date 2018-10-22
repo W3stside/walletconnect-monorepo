@@ -11,9 +11,9 @@ export default class Connector {
   constructor(opts = {}) {
     const options = this.checkObject(opts, 'options')
     this.bridgeUrl = options.bridgeUrl
+    this.dappName = options.dappName
     this.sessionId = options.sessionId
     this.symKey = options.symKey
-    this.dappName = options.dappName
     this.protocol = options.protocol || 'ethereum'
     this.chainId = options.chainId || 1
     this.expires = options.expires || null
