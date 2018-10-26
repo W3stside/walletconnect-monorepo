@@ -7,9 +7,33 @@ export default class RNWalletConnectWallet {
     this.walletConnectors = {}
   }
 
+<<<<<<< HEAD
   setWalletConnector(sessionId, walletConnector) {
     this.walletConnectors[sessionId] = walletConnector
     return true
+=======
+  //
+  // approve call request
+  //
+  async approveCallRequest(callId, data) {
+    if (!callId) {
+      throw new Error('`callId` is required')
+    }
+
+    if (!data || typeof data !== 'object') {
+      throw new Error('Data parameter is missing or invalid')
+    }
+
+    data.approved = true
+
+    const encryptionPayload = await this.encrypt(data)
+
+    const result = await this.sendCallStatus(callId, {
+      encryptionPayload
+    })
+
+    return result
+>>>>>>> 2c04c0b25569575296f136e571f24ca69c6f183e
   }
 
   getWalletConnector(sessionId) {
